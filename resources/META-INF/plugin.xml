@@ -1,0 +1,45 @@
+<idea-plugin>
+    <id>com.github.czy211.licensetemplate</id>
+    <name>License Template</name>
+    <version>1.0.0</version>
+    <vendor email="czy211@hotmail.com" url="https://github.com/czy211">czy211</vendor>
+
+    <description>
+        <![CDATA[
+            <p>选择一个开源软件协议快速创建LICENSE文件，如果需要具体了解各协议请参见<a href="http://choosealicense.online">
+            http://choosealicense.online</a></p>
+            <br>
+            <a href="https://github.com/czy211/license-template">源代码</a>
+        ]]>
+    </description>
+
+    <!--<change-notes>
+        <![CDATA[
+
+        ]]>
+    </change-notes>-->
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for
+         description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group id="license-template.com.github.czy211.licensetemplate.TemplateGroup"
+               class="com.github.czy211.licensetemplate.TemplateGroup" text="LICENSE" description="'创建LICENSE'"
+               popup="true">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+        </group>
+    </actions>
+
+</idea-plugin>
