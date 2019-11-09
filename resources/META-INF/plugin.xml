@@ -1,33 +1,40 @@
 <idea-plugin>
     <id>com.github.czy211.licensetemplate</id>
     <name>License Template</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <vendor email="czy211@hotmail.com" url="https://github.com/czy211">czy211</vendor>
 
     <description>
         <![CDATA[
-            <p>选择一个开源软件协议快速创建LICENSE文件，如果需要具体了解各协议请参见<a href="http://choosealicense.online">
-            http://choosealicense.online</a></p>
+            Quickly create a LICENSE file on your project. If you want to know which open source license you should
+            choose, please see <a href="https://choosealicense.com">https://choosealicense.com</a>.
             <br>
-            <a href="https://github.com/czy211/license-template">源代码</a>
+            <a href="https://github.com/czy211/license-template">Source Code</a>
         ]]>
     </description>
 
-    <!--<change-notes>
+    <change-notes>
         <![CDATA[
-
+            <h3>v1.0.1</h3>
+            <ul>
+                <li>Provide the description in English.</li>
+                <li>Modify since-build to "192.0".</li>
+                <li>Add dependencies for plugin.xml.</li>
+            </ul>
+            <h3>v1.0.0</h3>
+            Right-click the file or folder to open the popup menu, if there is no LICENSE file on the path, you will
+            find the LICENSE option in the "New" popup menu, then you can select a open source license to create the
+            LICENSE file.
         ]]>
-    </change-notes>-->
+    </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for
          description -->
-    <idea-version since-build="173.0"/>
+    <idea-version since-build="192.0"/>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-    <!-- uncomment to enable plugin in all products
     <depends>com.intellij.modules.lang</depends>
-    -->
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
