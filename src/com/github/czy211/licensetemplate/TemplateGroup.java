@@ -82,7 +82,8 @@ public class TemplateGroup extends ActionGroup {
      */
     private String readFromTemplate(String fileName) {
         try {
-            InputStream in = Objects.requireNonNull(this.getClass().getClassLoader().getResource(fileName)).openStream();
+            InputStream in = Objects.requireNonNull(this.getClass().getClassLoader().getResource(fileName))
+                    .openStream();
             return StreamUtil.readText(in, "utf-8");
         } catch (IOException ex) {
             ex.printStackTrace();
