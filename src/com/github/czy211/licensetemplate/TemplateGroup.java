@@ -16,6 +16,10 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class TemplateGroup extends ActionGroup {
+    public TemplateGroup() {
+        // 设置ActionGroup的图标
+        this.getTemplatePresentation().setIcon(AllIcons.FileTypes.Text);
+    }
 
     @NotNull
     @Override
@@ -24,8 +28,6 @@ public class TemplateGroup extends ActionGroup {
                 "MIT License", "The Unlicense", "CC0-1.0", "CC-BY-4.0", "CC-BY-SA-4.0", "SIL 开源字体协议"};
         Icon icon = AllIcons.FileTypes.Text;
 
-        // 设置ActionGroup的图标
-        Objects.requireNonNull(anActionEvent).getPresentation().setIcon(icon);
         // 创建AnAction数组，对应不同协议类型的LICENSE
         AnAction[] actions = new AnAction[types.length];
         for (int i = 0; i < actions.length; i++) {
