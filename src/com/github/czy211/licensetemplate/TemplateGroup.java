@@ -38,8 +38,8 @@ public class TemplateGroup extends ActionGroup {
 
     @Override
     public void update(@NotNull AnActionEvent e) {
-        // 当前路径中存在license文件时，隐藏此Action
-        e.getPresentation().setEnabledAndVisible(!isExist(e.getDataContext()));
+        // 显示或隐藏ActionGroup
+        e.getPresentation().setEnabledAndVisible(isShown(e.getDataContext()));
     }
 
     /**
@@ -91,21 +91,25 @@ public class TemplateGroup extends ActionGroup {
     }
 
     /**
-     * 检查当前路径中是否存在LICENSE文件
+     * 是否显示ActionGroup
      *
-     * @param dataContext dataContext
-     * @return boolean
+     * @param dataContext 数据上下文
+     * @return 如果显示ActionGroup，返回true，否则返回false
      */
-    private boolean isExist(DataContext dataContext) {
-        VirtualFile file = PlatformDataKeys.VIRTUAL_FILE.getData(dataContext);
-        VirtualFile[] files = Objects.requireNonNull(file).isDirectory() ? file.getChildren() : file.getParent()
-                .getChildren();
+    private boolean isShown(DataContext dataContext) {
+        VirtualFile[] vfs = PlatformDataKeys.VIRTUAL_FILE_ARRAY.getData(dataContext);
+        // 没有文件被选中或选中多个文件
+        if (vfs == null || vfs.length != 1) {
+            return false;
+        }
+        VirtualFile[] files = vfs[0].isDirectory() ? vfs[0].getChildren() : vfs[0].getParent().getChildren();
         for (VirtualFile f : files) {
+            // 当前路径中已存在LICENSE文件
             if ("license".equalsIgnoreCase(f.getNameWithoutExtension())) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     /**

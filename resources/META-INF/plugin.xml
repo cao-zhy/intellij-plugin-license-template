@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.github.czy211.licensetemplate</id>
     <name>License Template</name>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <vendor email="czy211@hotmail.com" url="https://github.com/czy211">czy211</vendor>
 
     <description>
@@ -15,6 +15,9 @@
 
     <change-notes>
         <![CDATA[
+            <h3>v1.0.3</h3>
+            Fix bug that the plugin occur error when open "New" popup menu if no file(or folder) is selected or multiple
+            files(or folders) are selected.
             <h3>v1.0.2</h3>
             Fix bug that the plugin occur error when using "Search Everywhere".
             <h3>v1.0.1</h3>
