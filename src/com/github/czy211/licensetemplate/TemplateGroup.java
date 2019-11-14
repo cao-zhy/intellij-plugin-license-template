@@ -124,7 +124,7 @@ public class TemplateGroup extends ActionGroup {
 
         @Override
         public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
-            String tempContext = readFromTemplate(this.getTemplateText());
+            String tempContext = readFromTemplate("templates/" + this.getTemplateText());
             String content = replaceTemplate(tempContext);
             DataContext dataContext = anActionEvent.getDataContext();
             String fileName = Objects.requireNonNull(PlatformDataKeys.VIRTUAL_FILE.getData(dataContext)).getPath();
