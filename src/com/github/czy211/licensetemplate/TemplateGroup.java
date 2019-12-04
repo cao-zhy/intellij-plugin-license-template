@@ -24,14 +24,31 @@ public class TemplateGroup extends ActionGroup {
     @NotNull
     @Override
     public AnAction[] getChildren(@Nullable AnActionEvent anActionEvent) {
-        String[] types = {"GNU AGPLv3", "GNU GPLv3", "GNU LGPLv3", "Mozilla Public License 2.0", "Apache License 2.0",
-                "MIT License", "The Unlicense", "CC0-1.0", "CC-BY-4.0", "CC-BY-SA-4.0", "SIL 开源字体协议"};
+        String[] types = {
+                "Apache License 2.0",
+                "BSD 2-Clause License",
+                "BSD 3-Clause License",
+                "Creative Commons Zero v1.0 Universal",
+                "Eclipse Public License 2.0",
+                "GNU Affero General Public License v3.0",
+                "GNU General Public License v2.0",
+                "GNU General Public License v3.0",
+                "GNU Lesser General Public License v2.1",
+                "GNU Lesser General Public License v3.0",
+                "MIT License",
+                "Mozilla Public License 2.0",
+                "The Unlicense",
+                "CC0-1.0",
+                "CC-BY-4.0",
+                "CC-BY-SA-4.0",
+                "SIL Open Font License 1.1"
+        };
         Icon icon = AllIcons.FileTypes.Text;
 
         // 创建AnAction数组，对应不同协议类型的LICENSE
         AnAction[] actions = new AnAction[types.length];
         for (int i = 0; i < actions.length; i++) {
-            actions[i] = new Template(types[i], "创建" + types[i] + "协议的LICENSE", icon);
+            actions[i] = new Template(types[i], "Create " + types[i], icon);
         }
         return actions;
     }

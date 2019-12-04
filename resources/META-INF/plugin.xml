@@ -1,31 +1,46 @@
 <idea-plugin>
     <id>com.github.czy211.licensetemplate</id>
     <name>License Template</name>
-    <version>1.0.3</version>
+    <version>1.1.0</version>
     <vendor email="czy211@hotmail.com" url="https://github.com/czy211">czy211</vendor>
 
     <description>
         <![CDATA[
-            Quickly create a LICENSE file on your project. If you want to know which open source license you should
-            choose, please see <a href="https://choosealicense.com">https://choosealicense.com</a>.
+            Create a LICENSE file from templates.<br>
             <br>
-            <a href="https://github.com/czy211/license-template">Source Code</a>
+            <b>Note:</b> If you want to know which open source license you should
+            choose, please see <a href="https://choosealicense.com">https://choosealicense.com</a>.
         ]]>
     </description>
 
     <change-notes>
         <![CDATA[
+            <h3>v1.1.0</h3>
+            Add templates:
+            <ul>
+                <li>BSD 2-Clause License</li>
+                <li>BSD 3-Clause License</li>
+                <li>Creative Commons Zero v1.0 Universal</li>
+                <li>Eclipse Public License 2.0</li>
+                <li>GNU General Public License v2.0</li>
+                <li>GNU Lesser General Public License v2.1</li>
+                <li>GNU Lesser General Public License v3.0</li>
+            </ul>
+
             <h3>v1.0.3</h3>
             Fix bug that the plugin occur error when open "New" popup menu if no file(or folder) is selected or multiple
             files(or folders) are selected.
+
             <h3>v1.0.2</h3>
             Fix bug that the plugin occur error when using "Search Everywhere".
+
             <h3>v1.0.1</h3>
             <ul>
                 <li>Provide the description in English.</li>
                 <li>Modify since-build to "192.0".</li>
                 <li>Add dependencies for plugin.xml.</li>
             </ul>
+
             <h3>v1.0.0</h3>
             Right-click the file or folder to open the popup menu, if there is no LICENSE file on the path, you will
             find the LICENSE option in the "New" popup menu, then you can select a open source license to create the
@@ -47,8 +62,8 @@
 
     <actions>
         <!-- Add your actions here -->
-        <group id="license-template.com.github.czy211.licensetemplate.TemplateGroup"
-               class="com.github.czy211.licensetemplate.TemplateGroup" text="LICENSE" description="'创建LICENSE'"
+        <group id="com.github.czy211.licensetemplate.TemplateGroup"
+               class="com.github.czy211.licensetemplate.TemplateGroup" text="LICENSE" description="Create LICENSE"
                popup="true">
             <add-to-group group-id="NewGroup" anchor="last"/>
         </group>
