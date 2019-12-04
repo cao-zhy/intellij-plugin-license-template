@@ -17,7 +17,7 @@ import java.util.Objects;
 
 public class TemplateGroup extends ActionGroup {
     public TemplateGroup() {
-        // 设置ActionGroup的图标
+        // 设置 ActionGroup 的图标
         this.getTemplatePresentation().setIcon(AllIcons.FileTypes.Text);
     }
 
@@ -45,7 +45,7 @@ public class TemplateGroup extends ActionGroup {
         };
         Icon icon = AllIcons.FileTypes.Text;
 
-        // 创建AnAction数组，对应不同协议类型的LICENSE
+        // 创建 AnAction 数组，对应不同协议类型的 LICENSE
         AnAction[] actions = new AnAction[types.length];
         for (int i = 0; i < actions.length; i++) {
             actions[i] = new Template(types[i], "Create " + types[i], icon);
@@ -55,7 +55,7 @@ public class TemplateGroup extends ActionGroup {
 
     @Override
     public void update(@NotNull AnActionEvent e) {
-        // 显示或隐藏ActionGroup
+        // 显示或隐藏 ActionGroup
         e.getPresentation().setEnabledAndVisible(isShown(e.getDataContext()));
     }
 
@@ -63,13 +63,13 @@ public class TemplateGroup extends ActionGroup {
      * 创建LICENSE文件
      *
      * @param fileName 当前弹出右键菜单的文件
-     * @param content LICENSE文件内容
-     * @return LICENSE文件路径
+     * @param content LICENSE 文件内容
+     * @return LICENSE 文件路径
      */
     private String createFile(String fileName, String content) {
         String path;
         File file = new File(fileName);
-        // file是目录时在当前路径下创建LICENSE文件，是文件时，在其父目录下创建LICENSE文件
+        // file 是目录时在当前路径下创建 LICENSE 文件，是文件时，在其父目录下创建 LICENSE 文件
         path = (file.isDirectory() ? fileName : file.getParent()) + "/LICENSE";
         try (PrintWriter output = new PrintWriter(path)) {
             output.print(content);
@@ -80,10 +80,10 @@ public class TemplateGroup extends ActionGroup {
     }
 
     /**
-     * 替换模板中的{$YEAR}和{$NAME}
+     * 替换模板中的 {$YEAR} 和 {$NAME}
      *
      * @param tempContext 模板文件内容
-     * @return LICENSE文件内容
+     * @return LICENSE 文件内容
      */
     private String replaceTemplate(String tempContext) {
         int year = LocalDate.now().getYear();
@@ -109,10 +109,10 @@ public class TemplateGroup extends ActionGroup {
     }
 
     /**
-     * 是否显示ActionGroup
+     * 是否显示 ActionGroup
      *
      * @param dataContext 数据上下文
-     * @return 如果显示ActionGroup，返回true，否则返回false
+     * @return 如果显示 ActionGroup，返回 true，否则返回 false
      */
     private boolean isShown(DataContext dataContext) {
         VirtualFile[] vfs = PlatformDataKeys.VIRTUAL_FILE_ARRAY.getData(dataContext);
@@ -122,7 +122,7 @@ public class TemplateGroup extends ActionGroup {
         }
         VirtualFile[] files = vfs[0].isDirectory() ? vfs[0].getChildren() : vfs[0].getParent().getChildren();
         for (VirtualFile f : files) {
-            // 当前路径中已存在LICENSE文件
+            // 当前路径中已存在 LICENSE 文件
             if ("license".equalsIgnoreCase(f.getNameWithoutExtension())) {
                 return false;
             }
@@ -131,7 +131,7 @@ public class TemplateGroup extends ActionGroup {
     }
 
     /**
-     * 定义Action类
+     * 定义 Action 类
      */
     class Template extends AnAction {
         Template(@Nls(capitalization = Nls.Capitalization.Title) @Nullable String text,
@@ -147,7 +147,7 @@ public class TemplateGroup extends ActionGroup {
             String fileName = Objects.requireNonNull(PlatformDataKeys.VIRTUAL_FILE.getData(dataContext)).getPath();
             String path = createFile(fileName, content);
             Project project = Objects.requireNonNull(anActionEvent.getProject());
-            // 打开LICENSE文件
+            // 打开 LICENSE 文件
             OpenFileAction.openFile(path, project);
         }
     }
