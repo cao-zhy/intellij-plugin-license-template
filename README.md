@@ -16,6 +16,17 @@
 
 ## 改动日志
 
+### v1.1.0
+
+新增模板：
+- BSD 2-Clause License
+- BSD 3-Clause License
+- Creative Commons Zero v1.0 Universal
+- Eclipse Public License 2.0
+- GNU General Public License v2.0
+- GNU Lesser General Public License v2.1
+- GNU Lesser General Public License v3.0
+
 ### v1.0.3
 
 修复未选择或多选文件（文件夹）时插件发生错误的 bug。
